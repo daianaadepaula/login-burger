@@ -117,7 +117,6 @@ export const Order = styled.li`
     div{
         flex-direction: column;
         justify-content: space-between;
-        
     }
 
     .order-name{
