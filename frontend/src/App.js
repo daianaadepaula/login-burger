@@ -21,7 +21,8 @@ const App = () => {
 
   function addNewOrder() {
     setOrders([
-      {id: Math.random(), order, name}
+      ...orders,
+      { id: Math.random(), order, name }
     ]);
   }
 
