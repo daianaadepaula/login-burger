@@ -121,6 +121,7 @@ export const Order = styled.li`
 
     .order-name{
         font-weight: 700;
+        padding-top: 10px;
     }
 
     button{

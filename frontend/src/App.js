@@ -16,13 +16,22 @@ import {
 
 const App = () => {
   const [orders, setOrders] = useState([]);
+  const [order, setOrder] = useState();
+  const [name, setName] = useState();
 
   function addNewOrder() {
-    setOrders([{
-      id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light", name: "Maria"
-    }]);
+    setOrders([
+      {id: Math.random(), order, name}
+    ]);
   }
 
+  function chanceInputOrder(event) {
+    setOrder(event.target.value)
+  }
+
+  function chanceInputName(event) {
+    setName(event.target.value)
+  }
 
   return (
 
@@ -33,10 +42,10 @@ const App = () => {
       <ContainerItens>
 
         <InputLabel>Pedido</InputLabel>
-        <Input placeholder='Pedido' />
+        <Input onChange={chanceInputOrder} placeholder='Pedido' />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input placeholder='Nome do cliente' />
+        <Input onChange={chanceInputName} placeholder='Nome do cliente' />
 
         <Button onClick={addNewOrder}>
           Novo Pedido</Button>
