@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Burger from './assets/burger.svg';
 import Trash from './assets/trash.svg';
@@ -16,22 +16,19 @@ import {
 
 const App = () => {
   const [orders, setOrders] = useState([]);
-  const [order, setOrder] = useState();
-  const [name, setName] = useState();
+  const inputOrder = useRef();
+  const inputName = useRef();
 
   function addNewOrder() {
     setOrders([
       ...orders,
-      { id: Math.random(), order, name }
+      {
+        id: Math.random(),
+        order: inputOrder.current.value,
+        name: inputName.current.value
+      },
     ]);
-  }
 
-  function chanceInputOrder(event) {
-    setOrder(event.target.value)
-  }
-
-  function chanceInputName(event) {
-    setName(event.target.value)
   }
 
   return (
@@ -43,10 +40,10 @@ const App = () => {
       <ContainerItens>
 
         <InputLabel>Pedido</InputLabel>
-        <Input onChange={chanceInputOrder} placeholder='Pedido' />
+        <Input ref={inputOrder} placeholder='Pedido' />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input onChange={chanceInputName} placeholder='Nome do cliente' />
+        <Input ref={inputName} placeholder='Nome do cliente' />
 
         <Button onClick={addNewOrder}>
           Novo Pedido</Button>
