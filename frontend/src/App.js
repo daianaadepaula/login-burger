@@ -22,14 +22,17 @@ const App = () => {
   const inputName = useRef();
 
   async function addNewOrder() {
-
+    /*
     const { data: newOrder } = await axios.post("http://localhost:3001/orders", {
       order: inputOrder.current.value,
       name: inputName.current.value,
     });
-
-
     setOrders([...orders, newOrder]);
+    */
+
+    const {data: newOrders} = await axios.get("http://localhost:3001/orders")
+
+    setOrders(newOrders)
   }
 
   function deleteOrder(demandId) {
