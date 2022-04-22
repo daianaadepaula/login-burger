@@ -31,6 +31,12 @@ const App = () => {
 
   }
 
+  function deleteOrder(demandId){
+    const newOrders = orders.filter( demand => demand.id !== demandId)
+
+    setOrders(newOrders);
+  }
+
   return (
 
     <Container>
@@ -55,7 +61,7 @@ const App = () => {
                 <p>{demand.order}</p>
                 <p className="order-name" >{demand.name}</p>
               </div>
-              <button>
+              <button onClick={() => deleteOrder(demand.id)}>
                 <img src={Trash} alt="lata-de-lixo" />
               </button>
             </Order>
