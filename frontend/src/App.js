@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 
+import axios from "axios";
+
 import Burger from './assets/burger.svg';
 import Trash from './assets/trash.svg';
 
@@ -19,20 +21,19 @@ const App = () => {
   const inputOrder = useRef();
   const inputName = useRef();
 
-  function addNewOrder() {
-    setOrders([
-      ...orders,
-      {
-        id: Math.random(),
-        order: inputOrder.current.value,
-        name: inputName.current.value
-      },
-    ]);
+  async function addNewOrder() {
 
+    const { data: newOrder } = await axios.post("http://localhost:3001/orders", {
+      order: inputOrder.current.value,
+      name: inputName.current.value,
+    });
+
+
+    setOrders([...orders, newOrder]);
   }
 
-  function deleteOrder(demandId){
-    const newOrders = orders.filter( demand => demand.id !== demandId)
+  function deleteOrder(demandId) {
+    const newOrders = orders.filter(demand => demand.id !== demandId)
 
     setOrders(newOrders);
   }
