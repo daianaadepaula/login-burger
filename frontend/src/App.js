@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import axios from "axios";
 
@@ -22,18 +22,23 @@ const App = () => {
   const inputName = useRef();
 
   async function addNewOrder() {
-    /*
     const { data: newOrder } = await axios.post("http://localhost:3001/orders", {
       order: inputOrder.current.value,
       name: inputName.current.value,
     });
     setOrders([...orders, newOrder]);
-    */
-
-    const {data: newOrders} = await axios.get("http://localhost:3001/orders")
-
-    setOrders(newOrders)
   }
+
+  useEffect(() => {
+
+    async function fetchOrders() {
+      const { data: newOrders } = await axios.get("http://localhost:3001/orders");
+
+      setOrders(newOrders);
+    }
+
+    fetchOrders()
+  }, []);
 
   function deleteOrder(demandId) {
     const newOrders = orders.filter(demand => demand.id !== demandId)
