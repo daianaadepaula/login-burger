@@ -1,33 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import Burger from './assets/burger.svg';
-import Trash from './assets/trash.svg';
+import Package from '../../assets/package.svg';
+import Trash from '../../assets/trash.svg';
 
 import {
   Container,
   Image,
   H1,
   ContainerItens,
-  InputLabel,
-  Input,
   Button,
   Order,
 } from "./styles";
 
-const App = () => {
+const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const inputOrder = useRef();
-  const inputName = useRef();
-
-  async function addNewOrder() {
-    const { data: newOrder } = await axios.post("http://localhost:3001/orders", {
-      order: inputOrder.current.value,
-      name: inputName.current.value,
-    });
-    setOrders([...orders, newOrder]);
-  }
 
   useEffect(() => {
 
@@ -51,19 +39,11 @@ const App = () => {
   return (
 
     <Container>
-      <Image alt="logo" src={Burger} />
-      <H1>Faça seu pedido!</H1>
+      <Image alt="logo" src={Package} />
+      <H1>Pedidos</H1>
 
       <ContainerItens>
 
-        <InputLabel>Pedido</InputLabel>
-        <Input ref={inputOrder} placeholder='Pedido' />
-
-        <InputLabel>Nome do Cliente</InputLabel>
-        <Input ref={inputName} placeholder='Nome do cliente' />
-
-        <Button onClick={addNewOrder}>
-          Novo Pedido</Button>
 
         <ul>
           {orders.map((demand) => (
@@ -78,6 +58,8 @@ const App = () => {
             </Order>
           ))}
         </ul>
+        
+        <Button>Voltar</Button>
 
       </ContainerItens>
 
@@ -85,4 +67,4 @@ const App = () => {
 
   );
 }
-export default App
+export default Orders
