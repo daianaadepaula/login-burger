@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Background from '../../assets/bg.svg'
 
+import { Link } from "react-router-dom";
+
 export const Container = styled.div`
     background: url("${Background}");
     background-size: cover;
@@ -36,13 +38,14 @@ export const ContainerItens = styled.div`
     height: 100vh;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     width: 342px;
     height: 68px;
     background: rgba(255, 255, 255, 0.14);
     
     margin-bottom: 51px;
     margin-top: 32px;
+    padding-top: 30px;
 
     cursor: pointer;
 

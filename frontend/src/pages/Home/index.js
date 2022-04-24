@@ -41,8 +41,7 @@ const App = () => {
         <InputLabel>Nome do Cliente</InputLabel>
         <Input ref={inputName} placeholder='Nome do cliente' />
 
-        <Button onClick={addNewOrder}>
-          Novo Pedido</Button>
+        <Button to="/pedidos" onClick={addNewOrder}>Novo Pedido</Button>
 
       </ContainerItens>
 
