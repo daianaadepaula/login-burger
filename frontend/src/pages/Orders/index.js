@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 
@@ -16,6 +17,7 @@ import {
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const history = useHistory()
 
   useEffect(() => {
 
@@ -30,10 +32,14 @@ const Orders = () => {
 
   async function deleteOrder(demandId) {
     await axios.delete(`http://localhost:3001/orders/${demandId}`)
-    
+
     const newOrders = orders.filter(demand => demand.id !== demandId)
 
     setOrders(newOrders);
+  }
+
+  function goBackPage() {
+    history.push('/')
   }
 
   return (
@@ -43,7 +49,6 @@ const Orders = () => {
       <H1>Pedidos</H1>
 
       <ContainerItens>
-
 
         <ul>
           {orders.map((demand) => (
@@ -58,8 +63,8 @@ const Orders = () => {
             </Order>
           ))}
         </ul>
-        
-        <Button to="/">Voltar</Button>
+
+        <Button onClick={goBackPage}>Voltar</Button>
 
       </ContainerItens>
 

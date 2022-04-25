@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 
@@ -16,6 +17,8 @@ import {
 
 const App = () => {
   const [orders, setOrders] = useState([]);
+  const history = useHistory();
+
   const inputOrder = useRef();
   const inputName = useRef();
 
@@ -25,6 +28,8 @@ const App = () => {
       name: inputName.current.value,
     });
     setOrders([...orders, newOrder]);
+
+    history.push('/pedidos')
   }
 
   return (
@@ -41,7 +46,7 @@ const App = () => {
         <InputLabel>Nome do Cliente</InputLabel>
         <Input ref={inputName} placeholder='Nome do cliente' />
 
-        <Button to="/pedidos" onClick={addNewOrder}>Novo Pedido</Button>
+        <Button onClick={addNewOrder}>Novo Pedido</Button>
 
       </ContainerItens>
 
