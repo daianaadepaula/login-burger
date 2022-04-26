@@ -5,11 +5,11 @@ import axios from "axios";
 
 import Package from '../../assets/package.svg';
 import Trash from '../../assets/trash.svg';
+import H1 from '../../components/Title'
 
 import {
   Container,
   Image,
-  H1,
   ContainerItens,
   Button,
   Order,
