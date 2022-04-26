@@ -1,17 +1,4 @@
 import styled from 'styled-components'
-import Background from '../../assets/bg.svg'
-
-export const Container = styled.div`
-    background: url("${Background}");
-    background-size: cover;
-
-    height: auto;
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-`
 
 export const Image = styled.img`
     margin-top: 10px;
@@ -24,33 +11,6 @@ export const ContainerItens = styled.div`
     flex-direction: column;
 
     height: 100vh;
-`
-
-export const Button = styled.button`
-    width: 342px;
-    height: 68px;
-    background: rgba(255, 255, 255, 0.14);
-    
-    margin-bottom: 51px;
-    margin-top: 32px;
-
-    cursor: pointer;
-
-    font-style: normal;
-    font-weight: 900;
-    font-size: 17px;
-    line-height: 2px;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-
-    &:hover{
-        opacity: 0.8;
-    }
-
-    &:active{
-        opacity: 0.5;
-    }
 `
 
 export const Order = styled.li`

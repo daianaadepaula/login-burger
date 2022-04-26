@@ -5,13 +5,14 @@ import axios from "axios";
 
 import Package from '../../assets/package.svg';
 import Trash from '../../assets/trash.svg';
+
 import H1 from '../../components/Title'
+import Container from "../../components/Container";
+import Button from "../../components/Button";
 
 import {
-  Container,
   Image,
   ContainerItens,
-  Button,
   Order,
 } from "./styles";
 
@@ -64,7 +65,7 @@ const Orders = () => {
           ))}
         </ul>
 
-        <Button onClick={goBackPage}>Voltar</Button>
+        <Button isBack={true} onClick={goBackPage}>Voltar</Button>
 
       </ContainerItens>
 

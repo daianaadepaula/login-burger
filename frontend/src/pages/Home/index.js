@@ -4,15 +4,16 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import Burger from '../../assets/burger.svg';
-import H1 from '../../components/Title'
+
+import H1 from '../../components/Title';
+import Container from "../../components/Container";
+import Button from "../../components/Button";
 
 import {
-  Container,
   Image,
   ContainerItens,
   InputLabel,
   Input,
-  Button,
 } from "./styles";
 
 const App = () => {
